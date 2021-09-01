@@ -1,0 +1,22 @@
+.profile__avatar {
+  background-size: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile__avatar:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.profile__avatar:hover:before {
+  background: no-repeat center url(../../../images/edit_avatar.svg) rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}

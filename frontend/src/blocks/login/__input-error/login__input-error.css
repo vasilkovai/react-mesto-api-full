@@ -1,0 +1,15 @@
+.login__input-error {
+  width: 100%;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  transition: opacity .3s;
+}

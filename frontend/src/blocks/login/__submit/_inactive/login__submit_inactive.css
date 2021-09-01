@@ -1,0 +1,6 @@
+.login__submit_inactive {
+  border-radius: 2px;
+  color: #444;
+  background: #ccc;
+  pointer-events: none;
+}

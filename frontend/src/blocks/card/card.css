@@ -1,0 +1,9 @@
+.card {
+  max-width: 282px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  list-style: none;
+  padding: 0;
+  object-fit: cover;
+}

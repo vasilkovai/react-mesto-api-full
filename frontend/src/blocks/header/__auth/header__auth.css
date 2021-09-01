@@ -1,0 +1,20 @@
+.header__auth {
+  max-height: 22px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #FFFFFF;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  margin: 0 0 0 24px;
+}
+
+.header__auth:hover {
+  opacity: .6;
+}

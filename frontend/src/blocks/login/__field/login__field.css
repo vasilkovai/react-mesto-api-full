@@ -1,0 +1,10 @@
+.login__field {
+  margin: 35px 0 0 0;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.login__field:first-child {
+  margin-top: 50px;
+}
