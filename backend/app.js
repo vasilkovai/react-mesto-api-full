@@ -1,8 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
-const cors = require('cors');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const usersRouter = require('./routes/users');
