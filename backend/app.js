@@ -10,13 +10,11 @@ const cardsRouter = require('./routes/cards');
 const { login, createUser, signOut } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const error = require('./middlewares/error');
-const { validationSignIn, validationSignUp } = require('./middlewares/validator');
+const { validateSignIn, validateSignUp } = require('./middlewares/validator');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/not-found-err');
 
 const app = express();
-
-app.use(helmet());
 
 const { PORT = 3000 } = process.env;
 
@@ -36,6 +34,8 @@ const options = {
 
 app.use('*', cors(options));
 
+app.use(helmet());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -48,8 +48,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(requestLogger);
 
-app.post('/signin', validationSignIn, login);
-app.post('/signup', validationSignUp, createUser);
+app.post('/signin', validateSignIn, login);
+app.post('/signup', validateSignUp, createUser);
 app.delete('/signout', signOut);
 
 app.use(auth);
