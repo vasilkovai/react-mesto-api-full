@@ -1,0 +1,13 @@
+.header__info_active {
+  visibility: visible;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+}
+
+@media screen and (max-width: 879px) {
+  .header__info_active {
+    padding: 12px 0 40px 0;
+    height: 114px;
+  }
+}

@@ -1,4 +1,30 @@
 .header__info {
-  display: flex;
-  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 56px;
+  grid-template-areas: 
+  "auth signout";
+  column-gap: 24px;
+}
+
+@media screen and (max-width: 879px) {
+  .header__info {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "auth"
+    "signout";
+    column-gap: 0;
+    row-gap: 18px;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: -1px 0 0;
+    padding: 0;
+    transition: all .2s ease-in-out;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+  }
 }

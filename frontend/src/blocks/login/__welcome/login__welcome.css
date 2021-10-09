@@ -8,3 +8,11 @@
   color: #FFFFFF;
   margin: 60px 0 0;
 }
+
+@media screen and (max-width: 879px) {
+  .login__welcome {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 40px 0 0;
+  }
+}

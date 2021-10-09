@@ -1,21 +1,14 @@
-.header__auth {
+.header__signout {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  color: #FFFFFF;
-  outline: none;
-  cursor: pointer;
-  background-color: transparent;
+  color: #A9A9A9;
   border: none;
-  text-decoration: none;
+  background: transparent;
+  grid-area: signout;
   margin: 0;
   padding: 0;
-  grid-area: auth;
-}
-
-.header__auth:hover {
-  opacity: .6;
 }

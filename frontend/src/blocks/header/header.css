@@ -1,14 +1,17 @@
 .header {
-  max-width: 880px;
-  margin: 45px auto 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  align-items: flex-end;
+  padding: 45px 0 41px 0;
 }
 
 @media screen and (max-width: 879px) {
   .header {
-    width: 100%;
-    margin-top: 28px;
+    padding: 28px 0 31px 0;
+    flex-wrap: wrap-reverse;
+    align-content: flex-end;
+    align-items: flex-start;
   }
 }

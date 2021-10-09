@@ -1,12 +1,19 @@
 import React from 'react';
 import headerLogo from '../images/logo.svg'
-import { Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom'
+import {CgMenu} from 'react-icons/cg'
+import {CgClose} from 'react-icons/cg'
 
 function Header({signOut, email}) {
 
+  const [open, setOpen] = React.useState(false);
+
+  const hamburgerOpen = <CgMenu className="header__burger" onClick={() => setOpen(true)}/>
+  const hamburgerClose = <CgClose className="header__burger" onClick={() => setOpen(false)}/>
+
   return (
     <header className="header">
-      <img className="header__logo" alt="Место" src={headerLogo} />
+      <img className={`header__logo ${open ? 'header__logo_active' : ''}`} alt="Место" src={headerLogo}/>
       <Route path="/sign-up">
         <Link className="header__auth" to="/sign-in">Войти</Link>
       </Route>
@@ -14,9 +21,10 @@ function Header({signOut, email}) {
         <Link className="header__auth" to="/sign-up">Регистрация</Link>
       </Route>
       <Route exact path="/" >
-        <div className="header__info">
+        {open ? hamburgerClose : hamburgerOpen}
+        <div className={`header__info ${open ? 'header__info_active' : ''}`}>
           <p className="header__auth">{email}</p>
-          <button className="header__auth" onClick={signOut}>Выход</button>
+          <button className="header__signout" onClick={signOut}>Выход</button>
         </div>
       </Route>
     </header>

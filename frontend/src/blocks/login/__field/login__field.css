@@ -8,3 +8,9 @@
 .login__field:first-child {
   margin-top: 50px;
 }
+
+@media screen and (max-width: 879px) {
+  .login__field:first-child {
+    margin-top: 40px;
+  }
+}

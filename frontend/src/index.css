@@ -1,10 +1,15 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
-@import url(./blocks/page/page.css);
+@import url(./blocks/root/root.css);
+@import url(./blocks/root/__container/root__container.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__logo/_active/header__logo_active.css);
 @import url(./blocks/header/__auth/header__auth.css);
+@import url(./blocks/header/__signout/header__signout.css);
+@import url(./blocks/header/__burger/header__burger.css);
 @import url(./blocks/header/__info/header__info.css);
+@import url(./blocks/header/__info/_active/header__info_active.css);
 @import url(./blocks/register/register.css);
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__avatar/profile__avatar.css);
@@ -55,7 +60,3 @@
 @import url(./blocks/login/__submit/login__submit.css);
 @import url(./blocks/login/__submit/_inactive/login__submit_inactive.css);
 @import url(./blocks/login/__sign-in/login__sign-in.css);
-
-body {
-  background-color: black;
-}

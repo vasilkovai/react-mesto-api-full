@@ -1,0 +1,42 @@
+.header__burger {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border-radius: 0;
+  border-color: transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  outline: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border: 0;
+}
+
+.header__burger:hover {
+  opacity: .6;
+}
+
+.header__burger:active {
+  opacity: .6;
+  outline: none;
+}
+
+.header__burger:focus:not(:active) {
+  opacity: 1;
+  outline: none;
+}
+
+@media screen and (max-width: 879px) {
+  .header__burger {
+    visibility: visible;
+    opacity: 1;
+  }
+}

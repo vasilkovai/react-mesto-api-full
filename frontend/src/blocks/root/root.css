@@ -1,0 +1,10 @@
+.root {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}

@@ -13,4 +13,11 @@
   margin-top: 216px;
   border: none;
   cursor: pointer;
+  padding: 0;
+}
+
+@media screen and (max-width: 879px) {
+  .login__submit {
+    margin-top: 173px;
+  }
 }

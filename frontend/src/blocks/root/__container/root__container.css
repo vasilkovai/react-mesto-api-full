@@ -1,0 +1,12 @@
+.root__container {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 879px) {
+    .root__container {
+      width: calc(100% - 30px*2);
+    }
+}
