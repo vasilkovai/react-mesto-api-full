@@ -1,0 +1,12 @@
+.popup__input_error {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: red;
+}
+
+.popup__input_error:focus {
+  border-bottom: 1px solid red;
+}

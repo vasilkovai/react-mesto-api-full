@@ -1,51 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useFormWithValidation from '../hooks/useFormWithValidation';
 
 function Register ({handleRegister}) {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [emailError, setEmailError] = React.useState('');
-  const [passwordError, setPasswordError] = React.useState('');
-  const [formValid, setFormValid] = React.useState(false)
-
-  React.useEffect(() => {
-    (emailError || passwordError || email === '' || password === '') 
-      ? setFormValid(false) 
-      : setFormValid(true);
-  }, [emailError, passwordError, email, password])
-
-  function handleChangeEmail(e) {
-    setEmail(e.target.value)
-    const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
-    if (!regex.test(email)) {
-      setEmailError('Пожалуйста, введите корректный email-адрес.') 
-      if (!e.target.value) {
-        setEmailError('Обязательное поле.')
-      }
-    } else {
-      setEmailError('')
-    }
-  }
-
-  function handleChangePassword(e) {
-    setPassword(e.target.value)
-    if (e.target.value.length < 8) {
-      setPasswordError('Длина пароля должна быть не менее 8 символов.')
-      if (!e.target.value) {
-        setPasswordError('Обязательное поле.')
-      }
-    } else {
-      setPasswordError('')
-    }
-  }
+  const { values, errors, isValid, handleChange } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    handleRegister({
-      email: email,
-      password: password
-    })
+    handleRegister(values);
   }
 
   return (
@@ -54,33 +16,38 @@ function Register ({handleRegister}) {
         <form onSubmit={handleSubmit} className="login__form">
           <label className="login__field" htmlFor="email">
             <input 
-              className={`login__input ${emailError ? "login__input_error" : "login__input_valid"}`}
+              className={`login__input ${errors.email ? "login__input_error" : "login__input_valid"}`}
               id="email" 
               name="email" 
               type="email" 
               placeholder="Email"
-              onChange={handleChangeEmail}
-              value={email}
+              onChange={handleChange}
+              value={values.email || ''}
               autoComplete="off"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
-            <span className={`${emailError ? "login__input-error" : null}`}>{emailError}</span>
+            <span className={`${errors.email? "login__input-error" : null}`}>{errors.email}</span>
           </label>
           
           <label className="login__field" htmlFor="password">
             <input 
-              className={`login__input ${passwordError ? "login__input_error" : "login__input_valid"}`}
+              className={`login__input ${errors.password ? "login__input_error" : "login__input_valid"}`}
               id="password" 
               name="password" 
               type="password" 
               placeholder="Пароль"
-              onChange={handleChangePassword}
-              value={password}
+              onChange={handleChange}
+              value={values.password || ''}
               autoComplete="off"
+              required
+              minLength="8"
+              maxLength="30"
             />
-            <span className={`${passwordError ? "login__input-error" : null}`}>{passwordError}</span>
+            <span className={`${errors.password ? "login__input-error" : null}`}>{errors.password}</span>
           </label>
           
-          <button type="submit" className={`login__submit ${!formValid ? "login__submit_inactive" : null}`}>Зарегистрироваться</button>
+          <button type="submit" className={`login__submit ${!isValid ? "login__submit_inactive" : null}`}>Зарегистрироваться</button>
         </form>
         <Link to="/sign-in" className="login__sign-in">Уже зарегистрированы? Войти</Link>
     </div>

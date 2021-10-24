@@ -1,32 +1,17 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm.js';
+import useFormWithValidation from '../hooks/useFormWithValidation';
 
 function AddPlacePopup({isOpen, onClose, onAddPlace, isLoading}) {
-  const [cardName, setCardName] = React.useState('');
-  const [cardLink, setCardLink] = React.useState('');
-
-
-  React.useEffect(() => {
-    setCardName('');
-    setCardLink('');
-  }, [isOpen]); 
-
-  function handleChangeCardName(e) {
-    setCardName(e.target.value)
-  }
-  
-  function handleChangeCardLink(e) {
-    setCardLink(e.target.value)
-  }
-
+  const { values, errors, isValid, handleChange, resetForm } = useFormWithValidation();
   function handleSubmit(e) {
     e.preventDefault();
-  
-    onAddPlace({
-      name: cardName,
-      link: cardLink,
-    });
-  }
+    onAddPlace(values);
+  };
+
+  React.useEffect(() => { 
+    resetForm();
+  }, [resetForm, isOpen]);
 
   return (
     <PopupWithForm 
@@ -35,32 +20,41 @@ function AddPlacePopup({isOpen, onClose, onAddPlace, isLoading}) {
       isOpen={isOpen} 
       onClose={onClose}
       onSubmit={handleSubmit}
-      isLoading={isLoading ? 'Сохранение...' : 'Создать'}
     >
+      <fieldset className="popup__field">
       <input 
         type="text" 
-        className="popup__input popup__input_card_name" 
+        className={`popup__input ${errors.name ? "popup__input_error" : "popup__input_valid"}`}
         name="name" 
         required 
         placeholder="Название" 
         minLength={2} 
         maxLength={30} 
         id="card-name" 
-        onChange={handleChangeCardName}
-        value={cardName}
+        onChange={handleChange}
+        value={values.name || ''}
       />
-      <span className="popup__input-error" id="card-name-error" />
+      <span className={`${errors.name ? "popup__input-error" : null}`}>{errors.name}</span>
+      </fieldset>
+
+      <fieldset className="popup__field">
       <input 
         type="url" 
-        className="popup__input popup__input_card_link" 
+        className={`popup__input ${errors.link ? "popup__input_error" : "popup__input_valid"}`}
         name="link" 
         required 
         placeholder="Ссылка на картинку" 
         id="card-link" 
-        onChange={handleChangeCardLink}
-        value={cardLink}
+        onChange={handleChange}
+        value={values.link || ''}
       />
-      <span className="popup__input-error" id="card-link-error" />
+      <span className={`${errors.link ? "popup__input-error" : null}`}>{errors.link}</span>
+      </fieldset>
+      <button 
+        type="submit" 
+        className={`popup__save-button ${!isValid ? "popup__save-button_inactive" : null}`}>
+          {isLoading ? 'Сохранение...' : 'Создать'}
+      </button>
     </PopupWithForm>
   );
 }

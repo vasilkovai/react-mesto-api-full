@@ -13,9 +13,13 @@ function DeleteCardPopup({ card, isOpen, onClose, isLoading, onCardDelete}) {
       title="Вы уверены?"
       isOpen={isOpen}
       onClose={onClose}
-      isLoading={isLoading ? 'Удаление...' : 'Да'}
       onSubmit={handleSubmit}
     >
+      <button 
+        type="submit" 
+        className="popup__save-button">
+          {isLoading ? 'Удаление...' : 'Да'}
+      </button>
     </PopupWithForm>
   );
 }
