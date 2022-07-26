@@ -22,7 +22,7 @@ function Login({handleLogin}) {
               type="email" 
               placeholder="Email"
               onChange={handleChange}
-              value={values.email}
+              value={values.email || ''}
               autoComplete="off"
               required
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -38,7 +38,7 @@ function Login({handleLogin}) {
               type="password" 
               placeholder="Пароль"
               onChange={handleChange}
-              value={values.password}
+              value={values.password || ''}
               autoComplete="off"
               required
               minLength="8"

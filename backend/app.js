@@ -16,14 +16,13 @@ const NotFoundError = require('./errors/not-found-err');
 
 const app = express();
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 
 app.use(cookieParser());
 
 const options = {
   origin: [
     'http://localhost:3000',
-    'https://mesto.project.nomoredomains.rocks',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
